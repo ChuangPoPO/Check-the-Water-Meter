@@ -13,6 +13,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/pages/iot-dashboard',
   },
   {
+    title: 'Water Meter',
+    icon: 'hard-drive-outline',
+    link: '/pages/meter',
+  },
+  {
     title: 'FEATURES',
     group: true,
   },
