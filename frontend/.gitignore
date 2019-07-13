@@ -21,10 +21,11 @@
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+*.code-workspace
 
 # misc
 /.sass-cache
-/connect.lock
+/connect.lockS
 /coverage
 /libpeerconnection.log
 npm-debug.log
