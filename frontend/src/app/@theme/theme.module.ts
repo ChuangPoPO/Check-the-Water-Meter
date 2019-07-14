@@ -37,6 +37,16 @@ import { DEFAULT_THEME } from './styles/theme.default';
 import { COSMIC_THEME } from './styles/theme.cosmic';
 import { CORPORATE_THEME } from './styles/theme.corporate';
 import { DARK_THEME } from './styles/theme.dark';
+import {
+  MatSidenavModule,
+  MatCardModule,
+  MatButtonModule,
+  MatGridListModule,
+  MatIconModule,
+  MatPaginatorModule,
+  MatSortModule,
+  MatTableModule,
+} from '@angular/material';
 
 const NB_MODULES = [
   NbLayoutModule,
@@ -66,10 +76,20 @@ const PIPES = [
   TimingPipe,
   NumberWithCommasPipe,
 ];
+const MATERIAL_MODULE = [
+  MatSidenavModule,
+  MatCardModule,
+  MatButtonModule,
+  MatGridListModule,
+  MatIconModule,
+  MatPaginatorModule,
+  MatSortModule,
+  MatTableModule,
+];
 
 @NgModule({
-  imports: [CommonModule, ...NB_MODULES],
-  exports: [CommonModule, ...PIPES, ...COMPONENTS],
+  imports: [CommonModule, ...NB_MODULES, ...MATERIAL_MODULE],
+  exports: [CommonModule, ...PIPES, ...COMPONENTS, ...MATERIAL_MODULE],
   declarations: [...COMPONENTS, ...PIPES],
 })
 export class ThemeModule {
@@ -81,7 +101,7 @@ export class ThemeModule {
           {
             name: 'default',
           },
-          [ DEFAULT_THEME, COSMIC_THEME, CORPORATE_THEME, DARK_THEME ],
+          [DEFAULT_THEME, COSMIC_THEME, CORPORATE_THEME, DARK_THEME],
         ).providers,
         WindowModeBlockScrollService,
       ],
