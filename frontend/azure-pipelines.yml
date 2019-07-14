@@ -1,0 +1,62 @@
+# Node.js with Angular
+# Build a Node.js project that uses Angular.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+  #  branches:
+  #    include:
+  #      - develop
+  tags:
+    include:
+      - v1.*
+
+pr: none
+
+jobs:
+  - job: "SourceScan"
+    displayName: "Source Scan"
+    pool: Default
+
+    steps:
+      - task: whitesource.ws-bolt.bolt.wss.WhiteSource Bolt@19
+        displayName: 'WhiteSource Bolt'
+
+  #  - job: "SetupEnvironment"
+  #    displayName: "Setup Environment"
+  #    pool: Default
+
+  #    steps:
+  #      - task: NodeTool@0
+  #        displayName: 'Install Node.js'
+  #        inputs:
+  #          versionSpec: 12.x
+  #        condition: succeededOrFailed()
+
+  #      - bash: |
+  #          npm install -g @angular/cli
+  #          npm install && \
+  #          npm rebuild node-sass
+  #        displayName: 'npm install'
+  #        condition: succeededOrFailed()
+
+  - job: "BuildAngularDockerImage"
+    displayName: "Build Angular and Docker Image"
+    pool: Default
+
+    steps:
+      - bash: |
+          npm install
+          ng build --sourceMap=false --prod
+        displayName: 'npm install and build'
+        condition: succeededOrFailed()
+
+      - bash: |
+          rm html -r
+          cp dist html -r
+          sed -i 's/BACKEND_URL/https:\/\/cwm.pickonefish.work\/api/g' html/*.js
+
+          PACKAGE_VERSION=$(node -p "require('./package.json').version")
+          docker build -t pickonefish/cwm-frontend:$PACKAGE_VERSION .
+          docker push pickonefish/cwm-frontend:$PACKAGE_VERSION
+        displayName: '[Production] docker build and push'
