@@ -50,6 +50,7 @@ jobs:
           ng build --sourceMap=false --prod
         displayName: 'npm install and build'
         condition: succeededOrFailed()
+        workingDirectory: frontend
 
       - bash: |
           rm html -r
@@ -60,3 +61,4 @@ jobs:
           docker build -t pickonefish/cwm-frontend:$PACKAGE_VERSION .
           docker push pickonefish/cwm-frontend:$PACKAGE_VERSION
         displayName: '[Production] docker build and push'
+        workingDirectory: frontend
