@@ -11,16 +11,16 @@ trigger:
     include:
       - v1.*
 
-pr: none
+# pr: none
 
 jobs:
-  - job: "SourceScan"
-    displayName: "Source Scan"
-    pool: Default
+#  - job: "SourceScan"
+#    displayName: "Source Scan"
+#    pool: Default
 
-    steps:
-      - task: whitesource.ws-bolt.bolt.wss.WhiteSource Bolt@19
-        displayName: 'WhiteSource Bolt'
+#    steps:
+#      - task: whitesource.ws-bolt.bolt.wss.WhiteSource Bolt@19
+#        displayName: 'WhiteSource Bolt'
 
   #  - job: "SetupEnvironment"
   #    displayName: "Setup Environment"
