@@ -16,7 +16,6 @@ export class MeterComponent implements OnInit {
   ngOnInit() {
     this.meterService.getDate().subscribe(data => {
       this.dataSource = data;
-      console.info('Datasource: ', this.dataSource);
     });
   }
 }
