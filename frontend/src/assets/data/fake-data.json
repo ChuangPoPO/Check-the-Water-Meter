@@ -1,0 +1,62 @@
+[
+      {
+            "ip": "192.168.1.1",
+            "hostname": "host_H",
+            "username": "mis_A",
+            "phrase": "mis_AA"
+      },
+      {
+            "ip": "192.168.1.2",
+            "hostname": "host_He",
+            "username": "mis_B",
+            "phrase": "mis_BB"
+      },
+      {
+            "ip": "192.168.1.3",
+            "hostname": "host_Li",
+            "username": "mis_C",
+            "phrase": "mis_CC"
+      },
+      {
+            "ip": "192.168.1.4",
+            "hostname": "host_Be",
+            "username": "mis_D",
+            "phrase": "mis_DD"
+      },
+      {
+            "ip": "192.168.1.5",
+            "hostname": "host_B",
+            "username": "mis_E",
+            "phrase": "mis_EE"
+      },
+      {
+            "ip": "192.168.1.6",
+            "hostname": "host_C",
+            "username": "mis_F",
+            "phrase": "mis_FF"
+      },
+      {
+            "ip": "192.168.1.7",
+            "hostname": "host_N",
+            "username": "mis_G",
+            "phrase": "mis_GG"
+      },
+      {
+            "ip": "192.168.1.8",
+            "hostname": "host_O",
+            "username": "mis_H",
+            "phrase": "mis_HH"
+      },
+      {
+            "ip": "192.168.1.9",
+            "hostname": "host_F",
+            "username": "mis_I",
+            "phrase": "mis_II"
+      },
+      {
+            "ip": "192.168.1.10",
+            "hostname": "host_Ne",
+            "username": "mis_J",
+            "phrase": "mis_JJ"
+      }
+]
