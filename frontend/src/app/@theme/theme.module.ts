@@ -46,6 +46,7 @@ import {
   MatPaginatorModule,
   MatSortModule,
   MatTableModule,
+  MatListModule,
 } from '@angular/material';
 
 const NB_MODULES = [
@@ -85,6 +86,7 @@ const MATERIAL_MODULE = [
   MatPaginatorModule,
   MatSortModule,
   MatTableModule,
+  MatListModule,
 ];
 
 @NgModule({
