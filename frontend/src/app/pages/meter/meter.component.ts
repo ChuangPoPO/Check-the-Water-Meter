@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MeterDataService } from '../../@core/data/meter-data.service';
+import { MatSidenav } from '@angular/material';
 
 @Component({
   selector: 'ngx-meter',
@@ -8,8 +9,11 @@ import { MeterDataService } from '../../@core/data/meter-data.service';
 })
 export class MeterComponent implements OnInit {
 
+  @ViewChild('sidenav', {static: false}) sidenav: MatSidenav;
+
   displayedColumns = ['ip', 'hostname', 'detail'];
   dataSource ;
+  detailData: MeterElement;
 
   constructor(private meterService: MeterDataService) { }
 
@@ -17,6 +21,11 @@ export class MeterComponent implements OnInit {
     this.meterService.getDate().subscribe(data => {
       this.dataSource = data;
     });
+  }
+
+  onDetail(data: object) {
+    this.detailData = Object.assign(data);
+    this.sidenav.open();
   }
 }
 
