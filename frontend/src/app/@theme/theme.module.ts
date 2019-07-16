@@ -47,6 +47,11 @@ import {
   MatSortModule,
   MatTableModule,
   MatListModule,
+  MatRadioModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatCheckboxModule,
+  MatSelectModule,
 } from '@angular/material';
 
 const NB_MODULES = [
@@ -87,6 +92,11 @@ const MATERIAL_MODULE = [
   MatSortModule,
   MatTableModule,
   MatListModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatCheckboxModule,
+  MatRadioModule,
+  MatSelectModule,
 ];
 
 @NgModule({
