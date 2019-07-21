@@ -15,6 +15,23 @@
         <h4 mat-line>Phrase：{{detailData?.phrase}}</h4>
       </mat-list-item>
     </mat-list>
+
+    <div>
+      <form [formGroup]="dataForm">
+        <mat-form-field>
+          <input matInput placeholder="IP" formControlName="ip">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Hostname" formControlName="hostname">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Username" formControlName="username">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Phrase" formControlName="phrase">
+        </mat-form-field>
+      </form>
+    </div>
   </mat-sidenav>
 
   <mat-sidenav-content>

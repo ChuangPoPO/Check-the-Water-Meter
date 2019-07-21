@@ -53,6 +53,7 @@ import {
   MatCheckboxModule,
   MatSelectModule,
 } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const NB_MODULES = [
   NbLayoutModule,
@@ -100,8 +101,19 @@ const MATERIAL_MODULE = [
 ];
 
 @NgModule({
-  imports: [CommonModule, ...NB_MODULES, ...MATERIAL_MODULE],
-  exports: [CommonModule, ...PIPES, ...COMPONENTS, ...MATERIAL_MODULE],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    ...NB_MODULES,
+    ...MATERIAL_MODULE],
+  exports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    ...PIPES,
+    ...COMPONENTS,
+    ...MATERIAL_MODULE],
   declarations: [...COMPONENTS, ...PIPES],
 })
 export class ThemeModule {
