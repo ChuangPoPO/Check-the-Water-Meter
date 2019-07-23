@@ -37,14 +37,12 @@ export class MeterComponent implements OnInit {
 
   // 編輯虛擬機器資料
   edit() {
-    console.info('edit');
     this.editMode = true;
     this.dataForm.enable();
   }
 
   // 將資料儲存，重新選染表單成新資料
   save(data: MeterElement) {
-    console.info('save: ', data);
     this.editMode = false;
     // TODO: save new data into reactiveForm
     this.dataForm.disable();
