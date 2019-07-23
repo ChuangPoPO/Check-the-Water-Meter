@@ -16,6 +16,7 @@ export class MeterComponent implements OnInit {
   dataSource;
   detailData: MeterElement;
   dataForm: FormGroup;
+  editMode: boolean = false;
 
   constructor(private meterService: MeterDataService,
     private fb: FormBuilder) { }
@@ -29,16 +30,32 @@ export class MeterComponent implements OnInit {
 
   onDetail(data: MeterElement) {
     this.detailData = Object.assign(data);
+    this.editMode = false;
     this.setDataForm(data);
     this.sidenav.open();
   }
 
+  // 編輯虛擬機器資料
+  edit() {
+    console.info('edit');
+    this.editMode = true;
+    this.dataForm.enable();
+  }
+
+  // 將資料儲存，重新選染表單成新資料
+  save(data: MeterElement) {
+    console.info('save: ', data);
+    this.editMode = false;
+    // TODO: save new data into reactiveForm
+    this.dataForm.disable();
+  }
+
   private createForm() {
     this.dataForm = this.fb.group({
-      ip: [null],
-      hostname: [null],
-      username: [null],
-      phrase: [null],
+      ip: [{value: null, disabled: true}],
+      hostname: [{value: null, disabled: true}],
+      username: [{value: null, disabled: true}],
+      phrase: [{value: null, disabled: true}],
     });
   }
 

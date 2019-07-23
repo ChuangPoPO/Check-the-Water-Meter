@@ -1,33 +1,21 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #sidenav mode="over" class="sidenav-side">
-    <mat-list>
-      <h3 mat-subheader>Details</h3>
-      <mat-list-item>
-        <h4 mat-line>IP：{{detailData?.ip}}</h4>
-      </mat-list-item>
-      <mat-list-item>
-        <h4 mat-line>Hostname：{{detailData?.hostname}}</h4>
-      </mat-list-item>
-      <mat-list-item>
-        <h4 mat-line>Username：{{detailData?.username}}</h4>
-      </mat-list-item>
-      <mat-list-item>
-        <h4 mat-line>Phrase：{{detailData?.phrase}}</h4>
-      </mat-list-item>
-    </mat-list>
-
-    <div>
+    <div class="m-3">
+      <div class="mb-3">
+        <button mat-button color="primary" (click)="edit()" [disabled]="editMode">Edit</button>
+        <button mat-button color="primary" (click)="save(dataForm.value)" [disabled]="!editMode">Save</button>
+      </div>
       <form [formGroup]="dataForm">
-        <mat-form-field>
+        <mat-form-field class="w-100">
           <input matInput placeholder="IP" formControlName="ip">
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field class="w-100">
           <input matInput placeholder="Hostname" formControlName="hostname">
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field class="w-100">
           <input matInput placeholder="Username" formControlName="username">
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field class="w-100">
           <input matInput placeholder="Phrase" formControlName="phrase">
         </mat-form-field>
       </form>
